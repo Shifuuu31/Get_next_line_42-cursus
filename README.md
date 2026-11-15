@@ -6,10 +6,12 @@ A robust, memory-efficient C library function designed to read and return a line
 [![42 Cursus](https://img.shields.io/badge/42-Cursus-black.svg)](#42-cursus-context)
 [![Project](https://img.shields.io/badge/Project-get__next__line-brightgreen.svg)](#project-overview)
 [![Scope](https://img.shields.io/badge/Scope-Mandatory%20%2B%20Bonus-orange.svg)](#mandatory-and-bonus-features)
-[![Score](https://img.shields.io/badge/Score-125%2F100-success.svg)](#validation-evidence)
+[![Score](https://img.shields.io/badge/Score-125%2F100-success.svg)](assets/validation/get_next_line-125.png)
 
 <p align="center">
-  <img src="assets/validation/get_next_line-125%.png" alt="42 get_next_line Evaluation Result - 125%" width="850">
+  <a href="assets/validation/get_next_line-125.png">
+    <img src="assets/validation/get_next_line-125.png" alt="42 get_next_line Evaluation Result - 125%" width="850">
+  </a>
 </p>
 
 ---
@@ -32,6 +34,7 @@ A robust, memory-efficient C library function designed to read and return a line
 - [Validation Evidence](#validation-evidence)
 - [Known Platform Differences and Edge Cases](#known-platform-differences-and-edge-cases)
 - [Learning Outcomes](#learning-outcomes)
+- [Resources and References](#resources-and-references)
 - [Author](#author)
 - [License](#license)
 
@@ -65,7 +68,7 @@ In the 42 curriculum, `get_next_line` introduces students to stateful execution,
 | **Static Variable Usage** | Exactly 1 static pointer (`static char *hold;`) | Exactly 1 static array (`static char *hold[OPEN_MAX];`) |
 | **State Persistence** | Retains unread bytes for next call | Independently retains unread bytes per active descriptor |
 | **Buffer Size Flexibility** | Configurable via `-D BUFFER_SIZE=n` | Configurable via `-D BUFFER_SIZE=n` |
-| **Directory Location** | `mandatory/` | `bonus/` |
+| **Directory Location** | [`mandatory/`](mandatory/) | [`bonus/`](bonus/) |
 
 ---
 
@@ -130,16 +133,17 @@ To maintain strict compliance with the 42 project specifications:
 
 ## Source File Responsibilities
 
-| File | Primary Responsibility | Key Functions |
+| File / Resource | Primary Responsibility | Key Functions / Details |
 | :--- | :--- | :--- |
-| `mandatory/get_next_line.h` | Mandatory header declarations, includes, and default `BUFFER_SIZE` | Prototypes for mandatory functions |
-| `mandatory/get_next_line.c` | Core read loop, line extraction, remainder trimming, and entry point | `get_next_line`, `ft_read_and_hold`, `ft_hold_line`, `ft_sub_hold` |
-| `mandatory/get_next_line_utils.c` | Essential string manipulation primitives | `ft_strlen`, `ft_strchr`, `ft_strdup`, `ft_strjoin`, `ft_memcpy` |
-| `bonus/get_next_line_bonus.h` | Bonus header declarations, includes, and definitions | Prototypes for bonus multi-FD functions |
-| `bonus/get_next_line_bonus.c` | Multi-FD concurrent read dispatcher and accumulator management | `get_next_line`, `ft_read_and_hold`, `ft_hold_line`, `ft_hold` |
-| `bonus/get_next_line_utils_bonus.c` | String manipulation primitives for the bonus implementation | `ft_strlen`, `ft_strchr`, `ft_strdup`, `ft_strjoin`, `ft_memcpy` |
-| `docs/en.subject.pdf` | Official 42 project subject specification | Project requirements and grading criteria |
-| `assets/validation/` | Visual validation captures and evidence assets | Evaluation grade, build, functional test, memory, and git captures |
+| [`mandatory/get_next_line.h`](mandatory/get_next_line.h) | Mandatory header declarations, includes, and default `BUFFER_SIZE` | Prototypes for mandatory functions |
+| [`mandatory/get_next_line.c`](mandatory/get_next_line.c) | Core read loop, line extraction, remainder trimming, and entry point | `get_next_line`, `ft_read_and_hold`, `ft_hold_line`, `ft_sub_hold` |
+| [`mandatory/get_next_line_utils.c`](mandatory/get_next_line_utils.c) | Essential string manipulation primitives | `ft_strlen`, `ft_strchr`, `ft_strdup`, `ft_strjoin`, `ft_memcpy` |
+| [`bonus/get_next_line_bonus.h`](bonus/get_next_line_bonus.h) | Bonus header declarations, includes, and definitions | Prototypes for bonus multi-FD functions |
+| [`bonus/get_next_line_bonus.c`](bonus/get_next_line_bonus.c) | Multi-FD concurrent read dispatcher and accumulator management | `get_next_line`, `ft_read_and_hold`, `ft_hold_line`, `ft_hold` |
+| [`bonus/get_next_line_utils_bonus.c`](bonus/get_next_line_utils_bonus.c) | String manipulation primitives for the bonus implementation | `ft_strlen`, `ft_strchr`, `ft_strdup`, `ft_strjoin`, `ft_memcpy` |
+| [`docs/en.subject.pdf`](docs/en.subject.pdf) | Official 42 project subject specification | Project requirements and grading criteria |
+| [`docs/get_next_line-125.png`](docs/get_next_line-125.png) | 42 Intra official evaluation result archive | Evaluation report proving 125/100 score |
+| [`assets/validation/`](assets/validation/) | Visual validation captures and evidence assets | Evaluation grade, build, functional test, memory, and git captures |
 
 ---
 
@@ -150,7 +154,7 @@ Get_next_line_42-cursus/
 ├── assets/
 │   └── validation/
 │       ├── bonus-validation.png      # Multi-FD test execution and Linux OPEN_MAX findings
-│       ├── get_next_line-125%.png    # Official 42 peer-evaluation result (125%)
+│       ├── get_next_line-125.png     # Official 42 peer-evaluation result (125%)
 │       ├── git-integrity.png         # Git workspace and diff integrity verification
 │       ├── mandatory-build.png       # Compiler flags and clean build verification
 │       ├── mandatory-tests.png       # 25 mandatory functional test assertions
@@ -160,7 +164,8 @@ Get_next_line_42-cursus/
 │   ├── get_next_line_bonus.h         # Bonus header, definitions, and prototypes
 │   └── get_next_line_utils_bonus.c   # Helper utilities for string concatenation and length
 ├── docs/
-│   └── en.subject.pdf                # Official 42 get_next_line project subject specification
+│   ├── en.subject.pdf                # Official 42 get_next_line project subject specification
+│   └── get_next_line-125.png         # Documented 42 Intra evaluation score (125%)
 ├── mandatory/
 │   ├── get_next_line.c               # Core get_next_line loop and static accumulator
 │   ├── get_next_line.h               # Mandatory header and BUFFER_SIZE default
@@ -185,10 +190,10 @@ Get_next_line_42-cursus/
 
 ## Project Statistics
 
-- **Mandatory Source Files:** 2 (`get_next_line.c`, `get_next_line_utils.c`)
-- **Mandatory Header Files:** 1 (`get_next_line.h`)
-- **Bonus Source Files:** 2 (`get_next_line_bonus.c`, `get_next_line_utils_bonus.c`)
-- **Bonus Header Files:** 1 (`get_next_line_bonus.h`)
+- **Mandatory Source Files:** 2 ([`mandatory/get_next_line.c`](mandatory/get_next_line.c), [`mandatory/get_next_line_utils.c`](mandatory/get_next_line_utils.c))
+- **Mandatory Header Files:** 1 ([`mandatory/get_next_line.h`](mandatory/get_next_line.h))
+- **Bonus Source Files:** 2 ([`bonus/get_next_line_bonus.c`](bonus/get_next_line_bonus.c), [`bonus/get_next_line_utils_bonus.c`](bonus/get_next_line_utils_bonus.c))
+- **Bonus Header Files:** 1 ([`bonus/get_next_line_bonus.h`](bonus/get_next_line_bonus.h))
 - **Total Lines of C Code:** ~514 lines (concise, modular footprint)
 - **Default Buffer Size:** 3 (configurable to arbitrary positive integers at compile time)
 
@@ -223,7 +228,7 @@ The source files can be compiled directly into object files or linked directly w
 # Compile with a specific buffer size (e.g., 42)
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 mandatory/get_next_line.c mandatory/get_next_line_utils.c -c
 
-# Compile using default BUFFER_SIZE (defined as 3 in get_next_line.h)
+# Compile using default BUFFER_SIZE (defined as 3 in mandatory/get_next_line.h)
 cc -Wall -Wextra -Werror mandatory/get_next_line.c mandatory/get_next_line_utils.c -c
 ```
 
@@ -323,33 +328,35 @@ The following captures demonstrate verifiable evidence of 42 evaluation results,
 Official 42 Network evaluation result verifying the maximum achievable score of 125% (100% mandatory + 25% bonus):
 
 <p align="center">
-  <img src="assets/validation/get_next_line-125%.png" alt="42 get_next_line Evaluation Result - 125%" width="850">
+  <a href="assets/validation/get_next_line-125.png">
+    <img src="assets/validation/get_next_line-125.png" alt="42 get_next_line Evaluation Result - 125%" width="850">
+  </a>
 </p>
 
 ### 2. Mandatory Build Validation
 Demonstrates clean compilation of mandatory sources with `-Wall -Wextra -Werror`, object file generation, and verification under explicit buffer sizes and default header settings:
 
-![Mandatory build validation](assets/validation/mandatory-build.png)
+[![Mandatory build validation](assets/validation/mandatory-build.png)](assets/validation/mandatory-build.png)
 
 ### 3. Mandatory Functional Tests
 Demonstrates execution of 25 comprehensive functional assertions covering standard multi-line reads, empty files, single lines without newline, final lines without newline, variable line lengths, 2,000-character lines, and negative/invalid descriptors:
 
-![Mandatory functional tests](assets/validation/mandatory-tests.png)
+[![Mandatory functional tests](assets/validation/mandatory-tests.png)](assets/validation/mandatory-tests.png)
 
 ### 4. Bonus Multi-FD Validation
 Demonstrates the Linux `OPEN_MAX` portability finding, successful compilation with `-D OPEN_MAX=1024`, and execution of interleaved concurrent multi-FD reads verifying state isolation across 3 open descriptors:
 
-![Bonus validation](assets/validation/bonus-validation.png)
+[![Bonus validation](assets/validation/bonus-validation.png)](assets/validation/bonus-validation.png)
 
 ### 5. Memory and Leak Validation (AddressSanitizer)
 Demonstrates clean execution under GCC AddressSanitizer and LeakSanitizer with zero memory leaks, zero buffer overflows, and zero invalid memory accesses across both test suites:
 
-![Memory validation](assets/validation/memory-validation.png)
+[![Memory validation](assets/validation/memory-validation.png)](assets/validation/memory-validation.png)
 
 ### 6. Git Integrity Verification
 Confirms repository hygiene via `git diff --check`, `git status --short`, and `git diff --stat`, verifying that core C implementation files remain strictly untouched:
 
-![Git integrity verification](assets/validation/git-integrity.png)
+[![Git integrity verification](assets/validation/git-integrity.png)](assets/validation/git-integrity.png)
 
 ---
 
@@ -379,6 +386,15 @@ Developing this project provided deep hands-on experience with:
 - **Heap Safety & Leak Prevention:** Eliminating memory leaks and invalid accesses across multiple allocation and trimming cycles.
 - **Concurrent Stream Management:** Maintaining independent, isolated buffer states across multiple open file descriptors.
 - **Strict Compiler Standards:** Writing clean, warnings-free C code adhering strictly to 42 Norminette guidelines and strict compiler flags (`-Wall -Wextra -Werror`).
+
+---
+
+## Resources and References
+
+- [42 Project Subject Specification (`docs/en.subject.pdf`)](docs/en.subject.pdf) — Version 14.3
+- [42 Intra Official Evaluation Report (`docs/get_next_line-125.png`)](docs/get_next_line-125.png) — 125/100 score
+- [POSIX `read(2)` Linux Manual](https://man7.org/linux/man-pages/man2/read.2.html)
+- [C Storage Duration and Static Variables](https://en.cppreference.com/w/c/language/storage_duration)
 
 ---
 
