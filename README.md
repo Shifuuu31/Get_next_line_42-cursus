@@ -8,6 +8,33 @@
 
 The returned line includes the terminating newline character (`\n`) unless the end of the file is reached without a newline. When there is nothing left to read or if an error occurs, the function returns `NULL`.
 
+### Project Structure
+
+```text
+Get_next_line_42-cursus/
+├── mandatory/
+│   ├── get_next_line.c
+│   ├── get_next_line.h
+│   └── get_next_line_utils.c
+├── bonus/
+│   ├── get_next_line_bonus.c
+│   ├── get_next_line_bonus.h
+│   └── get_next_line_utils_bonus.c
+├── docs/
+│   ├── en.subject.pdf
+│   └── get_next_line-125%.png
+├── assets/
+│   └── validation/
+│       ├── mandatory-build.png
+│       ├── mandatory-tests.png
+│       ├── bonus-validation.png
+│       ├── memory-validation.png
+│       └── git-integrity.png
+└── README.md
+```
+
+> **Note on 42 Submission Rules:** The 42 subject requires source files to reside directly at the root of the repository when submitting to Vogsphere (`get_next_line.c`, `get_next_line_bonus.c`, etc.). In this repository, files are cleanly separated into `mandatory/`, `bonus/`, and `docs/` for modularity and presentation.
+
 ### Algorithm Overview
 
 1. **Buffered Reading (`ft_read_and_hold`)**: A temporary buffer of size `BUFFER_SIZE` reads from the file descriptor chunk by chunk. Chunks are appended to a static accumulator string (`hold`) via `ft_strjoin` until a newline character (`\n`) is encountered or `read` returns 0 (EOF) or -1 (error).
@@ -22,10 +49,10 @@ The project can be compiled with any C compiler (such as `cc` or `gcc`) with the
 
 ```bash
 # Mandatory compilation (example with BUFFER_SIZE=42)
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c -c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 mandatory/get_next_line.c mandatory/get_next_line_utils.c -c
 
 # Bonus compilation (requires OPEN_MAX on Linux glibc environments)
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 -D OPEN_MAX=1024 get_next_line_bonus.c get_next_line_utils_bonus.c -c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 -D OPEN_MAX=1024 bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c -c
 ```
 
 If `-D BUFFER_SIZE` is omitted, the default `BUFFER_SIZE 3` defined in `get_next_line.h` is used.
@@ -36,7 +63,7 @@ If `-D BUFFER_SIZE` is omitted, the default `BUFFER_SIZE 3` defined in `get_next
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "get_next_line.h"
+#include "mandatory/get_next_line.h"
 
 int main(void)
 {
@@ -61,7 +88,7 @@ The validation runs below were executed directly in the project environment to p
 
 ### 1. Mandatory Build Validation
 
-The mandatory files (`get_next_line.c`, `get_next_line_utils.c`, `get_next_line.h`) compile cleanly with `cc -Wall -Wextra -Werror` both with explicit `-D BUFFER_SIZE=42` and with the default header definition (`BUFFER_SIZE 3`), emitting zero compiler warnings or errors.
+The mandatory files (`mandatory/get_next_line.c`, `mandatory/get_next_line_utils.c`, `mandatory/get_next_line.h`) compile cleanly with `cc -Wall -Wextra -Werror` both with explicit `-D BUFFER_SIZE=42` and with the default header definition (`BUFFER_SIZE 3`), emitting zero compiler warnings or errors.
 
 ![Mandatory build validation](assets/validation/mandatory-build.png)
 
@@ -126,4 +153,5 @@ To guarantee that no implementation files were altered and no temporary artifact
 
 - [read(2) Linux Manual Page](https://man7.org/linux/man-pages/man2/read.2.html)
 - [C Static Variables Documentation](https://en.cppreference.com/w/c/language/storage_duration)
-- 42 Project Subject: `en.subject.pdf` (Version 14.3)
+- 42 Project Subject: [en.subject.pdf](docs/en.subject.pdf) (Version 14.3)
+- 42 Intra Evaluation Result: [get_next_line-125%.png](docs/get_next_line-125%.png) (125/100 score)
