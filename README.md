@@ -2,6 +2,8 @@
 
 # Get_next_line_42-cursus
 
+[![42 Score](https://img.shields.io/badge/42_Score-125%2F100-success?style=for-the-badge&logo=42)](assets/validation/get_next_line-125%.png)
+
 ## Description
 
 `get_next_line` is a 42 curriculum project whose goal is to implement a function in C that returns a single line read from a file descriptor. Repeated calls to `get_next_line()` allow reading the text referenced by the file descriptor line by line until reaching the end of the file (EOF).
@@ -21,10 +23,10 @@ Get_next_line_42-cursus/
 │   ├── get_next_line_bonus.h
 │   └── get_next_line_utils_bonus.c
 ├── docs/
-│   ├── en.subject.pdf
-│   └── get_next_line-125%.png
+│   └── en.subject.pdf
 ├── assets/
 │   └── validation/
+│       ├── get_next_line-125%.png
 │       ├── mandatory-build.png
 │       ├── mandatory-tests.png
 │       ├── bonus-validation.png
@@ -149,9 +151,20 @@ To guarantee that no implementation files were altered and no temporary artifact
 
 *Figure 5: Git integrity check verifying clean git diff, strict repository status, and untouched source code.*
 
+### 6. Official 42 Intra Validation (125%)
+
+The project achieved the maximum score of **125/100** (100% mandatory + 25% bonus) on the 42 Intra evaluation system:
+
+- **Moulinette Automated Validation:** `basic_tests: GNL OK | bonus_tests: GNL OK` (125%)
+- **Peer Evaluations:** 3/3 peer evaluations completed with full marks (125%).
+
+![42 Intra 125% Validation](assets/validation/get_next_line-125%.png)
+
+*Figure 6: Official 42 Intra evaluation page showing the 125/100 final result.*
+
 ## Resources
 
 - [read(2) Linux Manual Page](https://man7.org/linux/man-pages/man2/read.2.html)
 - [C Static Variables Documentation](https://en.cppreference.com/w/c/language/storage_duration)
 - 42 Project Subject: [en.subject.pdf](docs/en.subject.pdf) (Version 14.3)
-- 42 Intra Evaluation Result: [get_next_line-125%.png](docs/get_next_line-125%.png) (125/100 score)
+- 42 Intra Evaluation Result: [get_next_line-125%.png](assets/validation/get_next_line-125%.png) (125/100 score)
